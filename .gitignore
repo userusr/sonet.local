@@ -1,0 +1,12 @@
+.vscode
+
+.env
+build/*
+!build/.keep
+pki/*
+!pki/.keep
+!registry/.keep
+redmine/plugins/*
+!redmine/plugins/.keep
+redmine/themes/*
+!redmine/themes/.keep
