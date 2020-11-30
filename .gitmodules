@@ -1,0 +1,3 @@
+[submodule "sonet"]
+	path = sonet
+	url = https://github.com/userusr/sonet
