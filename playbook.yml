@@ -8,4 +8,5 @@
 - name: Generate compose file for docker-mashine
   hosts: "sonet_docker_mashine"
   roles:
+    - role: './sonet/roles/services'
     - role: './sonet/roles/generate_compose'

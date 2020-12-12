@@ -1,6 +1,8 @@
 .vscode
 
 .env
+registry/*
+!registry/.keep
 build/*
 !build/.keep
 pki/*
