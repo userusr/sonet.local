@@ -1,4 +1,4 @@
-.PHONY: build
+.PHONY: build venv
 
 .DEFAULT_GOAL := help
 
@@ -57,8 +57,7 @@ venv:  ## make python virtualenv
 
 lint:  ## lint ansible and yaml files
 	yamllint .
-	cd sonet && ${ANSIBLE_PLAYBOOK} $(PLAYBOOK) --inventory $(INVENTORY) --syntax-check
-	cd sonet && ansible-lint $(PLAYBOOK)
+	$(MAKE) -C sonet $(MAKE_VARS) lint
 
 registry-start: ## start local docker registry
 	$(MAKE) -C sonet $(MAKE_VARS) registry-start

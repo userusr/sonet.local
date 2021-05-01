@@ -7,6 +7,7 @@ all:
       local_path: "{{ local_playbook_path }}/build/sonet_local"
       docker_data_dir: "{{ local_playbook_path }}/build/sonet_local/docker"
       docker_bind_ip: 127.0.0.1
+      generate_service_certs: true
       include_service:
         - caddy
         - coredns
@@ -24,6 +25,7 @@ all:
       local_path: "{{ local_playbook_path }}/build/sonet_docker_mashine"
       docker_data_dir: "/opt/{{ project }}/docker"
       docker_registry_url: "{{ local_docker_registry_addr }}:{{ local_docker_registry_port }}"
+      generate_service_certs: true
       include_service:
         - caddy
         - coredns
