@@ -19,6 +19,7 @@ all:
         - roundcube
         - mailserv
         - storage
+        - nextcloud
     sonet_docker_mashine:
       ansible_connection: local
       ansible_python_interpreter: python3
@@ -37,3 +38,4 @@ all:
         - roundcube
         - mailserv
         - storage
+        - nextcloud

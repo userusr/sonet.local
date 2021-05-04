@@ -1,0 +1,15 @@
+---
+nextcloud:
+  apps:
+    - { url: "https://github.com/nextcloud/mail/releases/download/v1.9.5/mail.tar.gz", dest: "{{ local_playbook_path }}/nextcloud/apps/mail.tar.gz" }
+    - { url: "https://github.com/nextcloud/groupfolders/releases/download/v9.0.1/groupfolders.tar.gz", dest: "{{ local_playbook_path }}/nextcloud/apps/groupfolders.tar.gz" }
+    - { url: "https://github.com/nextcloud/announcementcenter/releases/download/v5.0.0/announcementcenter-5.0.0.tar.gz", dest: "{{ local_playbook_path }}/nextcloud/apps/announcementcenter.tar.gz" }
+    - { url: "https://github.com/nextcloud/contacts/releases/download/v3.5.1/contacts.tar.gz", dest: "{{ local_playbook_path }}/nextcloud/apps/contacts.tar.gz" }
+    - { url: "https://github.com/nextcloud/notes/releases/download/v4.0.4/notes.tar.gz", dest: "{{ local_playbook_path }}/nextcloud/apps/notes.tar.gz" }
+    - { url: "https://github.com/nextcloud/forms/releases/download/v2.2.4/forms.tar.gz", dest: "{{ local_playbook_path }}/nextcloud/apps/forms.tar.gz" }
+    - { url: "https://github.com/nextcloud/news/releases/download/15.4.2/news.tar.gz", dest: "{{ local_playbook_path }}/nextcloud/apps/news.tar.gz" }
+    - { url: "https://github.com/nextcloud/calendar/releases/download/v2.2.1/calendar.tar.gz", dest: "{{ local_playbook_path }}/nextcloud/apps/calendar.tar.gz" }
+    - { url: "https://github.com/ONLYOFFICE/onlyoffice-nextcloud/releases/download/v6.3.0/onlyoffice.tar.gz", dest: "{{ local_playbook_path }}/nextcloud/apps/onlyoffice.tar.gz" }
+    - { url: "https://github.com/pawelrojek/nextcloud-drawio/releases/download/v.1.0.0/drawio-v1.0.0.tar.gz", dest: "{{ local_playbook_path }}/nextcloud/apps/drawio.tar.gz" }
+    - { url: "https://github.com/icewind1991/files_markdown/releases/download/v2.3.3/files_markdown.tar.gz", dest: "{{ local_playbook_path }}/nextcloud/apps/files_markdown.tar.gz" }
+    - { url: "https://github.com/ACTom/files_mindmap/releases/download/v0.0.24/files_mindmap-0.0.24.tar.gz", dest: "{{ local_playbook_path }}/nextcloud/apps/files_mindmap.tar.gz" }

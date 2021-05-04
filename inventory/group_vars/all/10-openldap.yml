@@ -23,18 +23,48 @@ openldap:
   ldap_ssl_helper_prefix: "ldap"
   preset_ldiff:
     users:
-      ltolstoy: { person: true, id: 20201, sn: Толстой, displayName: "Толстой Л.", givenName: Лев, ou: Редакция, userPassword: ltolstoy }
-      achehov: { person: true, id: 20202, sn: Чехов, displayName: "Чехов А.", givenName: Антон, ou: Редакция, userPassword: achehov }
+      lpervov: { person: true, id: 20201, sn: Первов, displayName: "Первов Л.", givenName: Лев, ou: Редакция, userPassword: lpervov }
+      avtorov: { person: true, id: 20202, sn: Второв, displayName: "Второв А.", givenName: Антон, ou: Редакция, userPassword: avtorov }
+      itretiev: { person: true, id: 20203, sn: Третьев, displayName: "Третьев А.", givenName: Игорь, ou: Редакция, userPassword: itretiev }
+      pchetvertov: { person: true, id: 20204, sn: Четвертов, displayName: "Четвертов П.", givenName: Павел, ou: Редакция, userPassword: pchetvertov }
+      opyatov: { person: true, id: 20205, sn: Пятов, displayName: "Пятов О.", givenName: Олег, ou: Редакция, userPassword: opyatov }
       redmine: { person: false, userPassword: "{{ conf['redmine_admin_mail_account_password'] }}" }
       gitlab: { person: false, userPassword: "{{ conf['gitlab_mail_account_password'] }}" }
+      nextcloud: { person: false, userPassword: "{{ conf['nextcloud_admin_mail_account_password'] }}" }
     groups:
-      gitlab:
-        - gitlab
-        - ltolstoy
-        - achehov
-      redmine:
-        - redmine
-        - ltolstoy
-        - achehov
-      storage:
-        - ltolstoy
+      gitlab_users:
+        description: "Пользователи GitLab"
+        members:
+          - gitlab
+          - lpervov
+          - avtorov
+      redmine_users:
+        description: "Пользователи Redmine"
+        members:
+          - redmine
+          - lpervov
+          - avtorov
+      nextcloud_users:
+        description: "Пользователи NextCloud"
+        members:
+          - nextcloud
+          - lpervov
+          - avtorov
+          - pchetvertov
+          - opyatov
+      storage_admins:
+        description: "Администраторы SFTP"
+        members:
+          - lpervov
+      managers:
+        description: "Руководство"
+        members:
+          - lpervov
+      colleagues:
+        description: "Сотрудники"
+        members:
+          - lpervov
+          - avtorov
+          - itretiev
+          - pchetvertov
+          - opyatov
