@@ -6,3 +6,7 @@ conf:
   redmine_admin_mail_account_password: redmine
   gitlab_mail_account_password: gitlab
   nextcloud_admin_mail_account_password: nextcloud
+  # Admin user password is: portainer
+  #
+  # docker run --rm httpd:2.4-alpine htpasswd -nbB admin portainer | cut -d ":" -f 2 | sed 's/\$/\$\$/g'
+  portainer_admin_account_password: '$$2y$$05$$oEcbxi6amQS5.xCFLQS3N.q35YvRuimDxy9aRmNTEs7Kxn4lYi.dm'
