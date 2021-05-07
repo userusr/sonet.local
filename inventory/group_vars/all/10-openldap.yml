@@ -2,9 +2,7 @@
 openldap:
   ldap_log_level: "256"
   ldap_organisation: "Sonet"
-  ldap_domain: "{{ conf['ldap_domain'] }}"
-  ldap_base_dn: "{{ conf['ldap_base_dn'] }}"
-  ldap_hostname: "{{ conf['ldap_hostname'] }}"
+  ldap_base_dn: "dc=sonet,dc=local"
   ldap_admin_password: "{{ ldap_admin_password }}"
   ldap_config_password: "{{ ldap_config_password }}"
   ldap_readonly_user: 'true'

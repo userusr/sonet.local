@@ -1,12 +1,63 @@
 ---
 conf:
-  ldap_hostname: 'ldap'
-  ldap_domain: "sonet.local"
-  ldap_base_dn: "dc=sonet,dc=local"
+  ##
+  # Доменное имя
+  domain: "sonet.local"
+  ##
+  # Пароль пользователя 'redmine'.
   redmine_admin_mail_account_password: redmine
+  ##
+  # Пароль пользователя 'gitlab'.
   gitlab_mail_account_password: gitlab
+  ##
+  # Пароль пользователя 'nextcloud'.
   nextcloud_admin_mail_account_password: nextcloud
-  # Admin user password is: portainer
-  #
+  ##
+  # Хеш пароля пользователя 'admin' сервиса portainer. Генерируется так:
   # docker run --rm httpd:2.4-alpine htpasswd -nbB admin portainer | cut -d ":" -f 2 | sed 's/\$/\$\$/g'
   portainer_admin_account_password: '$$2y$$05$$oEcbxi6amQS5.xCFLQS3N.q35YvRuimDxy9aRmNTEs7Kxn4lYi.dm'
+  ##
+  # Hostname и alias для сервиса openldap. Нужен для доступа клиентов к LDAP.
+  # Нужно изменить в случае использования внешнего сервера LDAP.
+  ldap_hostname: 'ldap'
+  ##
+  # Версии используемых docker images.
+  #
+  # https://hub.docker.com/_/caddy?tab=tags&page=1&ordering=last_updated
+  docker_tag_caddy: "2.3.0"
+  # https://hub.docker.com/r/coredns/coredns/tags?page=1&ordering=last_updated
+  docker_tag_coredns: "1.8.3"
+  # https://hub.docker.com/r/excalidraw/excalidraw/tags?page=1&ordering=last_updated
+  docker_tag_excalidraw: "latest"
+  # https://hub.docker.com/r/gitlab/gitlab-ce/tags?page=1&ordering=last_updated
+  docker_tag_gitlab: "13.11.3-ce.0"
+  # https://hub.docker.com/r/osixia/light-baseimage/tags?page=1&ordering=last_updated
+  docker_tag_mailserv_baseimage: "stable-amd64"
+  # https://hub.docker.com/_/nextcloud?tab=tags&page=1&ordering=last_updated
+  docker_tag_nextcloud: "21.0.1-apache"
+  # https://hub.docker.com/_/postgres?tab=tags&page=1&ordering=last_updated
+  docker_tag_nextcloud_postgres: "13"
+  # https://hub.docker.com/r/jgraph/export-server/tags?page=1&ordering=last_updated
+  docker_tag_nextcloud_drawio: "14.6.9"
+  # https://hub.docker.com/r/jgraph/export-server/tags?page=1&ordering=last_updated
+  docker_tag_nextcloud_drawio_export_server: "latest"
+  # https://hub.docker.com/r/onlyoffice/documentserver/tags?page=1&ordering=last_updated
+  docker_tag_nextcloud_onlyoffice_ds: "6.2"
+  # https://hub.docker.com/_/redis?tab=tags&page=1&ordering=last_updated
+  docker_tag_redmine_redis: "6.2.2"
+  # https://hub.docker.com/r/osixia/openldap/tags?page=1&ordering=last_updated
+  docker_tag_openldap: "1.4.0"
+  # https://hub.docker.com/r/osixia/phpldapadmin/tags?page=1&ordering=last_updated
+  docker_tag_phpldapadmin: "stable-amd64"
+  # https://hub.docker.com/r/portainer/portainer-ce/tags?page=1&ordering=last_updated
+  docker_tag_portainer: "linux-amd64-2.1.1"
+  # https://hub.docker.com/_/redmine?tab=tags&page=1&ordering=last_updated
+  docker_tag_redmine: "4.2.1-passenger"
+  # https://hub.docker.com/_/postgres?tab=tags&page=1&ordering=last_updated
+  docker_tag_redmine_postgres: "13"
+  # https://hub.docker.com/r/roundcube/roundcubemail/tags?page=1&ordering=last_updated
+  docker_tag_roundcubemail: "1.4.x-apache"
+  # https://hub.docker.com/_/postgres?tab=tags&page=1&ordering=last_updated
+  docker_tag_roundcube_postgres: "13"
+  # https://hub.docker.com/r/osixia/light-baseimage/tags?page=1&ordering=last_updated
+  docker_tag_storage_baseimage: "stable-amd64"

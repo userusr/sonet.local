@@ -1,0 +1,11 @@
+{
+    "yaml.format.enable": true,
+    "yaml.format.singleQuote": true,
+    "yaml.format.bracketSpacing": true,
+    "yaml.validate": true,
+    "yaml.customTags": [
+        "!vault scalar"
+    ],
+    "restructuredtext.confPath": "",
+    "cSpell.enabled": false
+}

@@ -1,8 +1,8 @@
 ---
 mailserv:
   hostname: mail
-  domain: "{{ openldap['ldap_domain'] }}"
-  ldap_url: "ldap://{{ openldap['ldap_hostname'] }}:389"
+  domain: "{{ conf['domain'] }}"
+  ldap_url: "ldap://{{ conf['ldap_hostname'] }}:389"
   ldap_base_dn: "{{ openldap['ldap_base_dn'] }}"
   ldap_bind_dn: "cn={{ openldap['ldap_readonly_user_username'] }},{{ openldap['ldap_base_dn'] }}"
   ldap_bind_pw: "{{ openldap['ldap_readonly_user_password'] }}"
