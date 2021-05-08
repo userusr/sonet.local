@@ -5,13 +5,13 @@ conf:
   domain: "sonet.local"
   ##
   # Пароль пользователя 'redmine'.
-  redmine_admin_mail_account_password: redmine
+  redmine_admin_mail_account_password: "{{ vault_redmine_admin_mail_account_password }}"
   ##
   # Пароль пользователя 'gitlab'.
-  gitlab_mail_account_password: gitlab
+  gitlab_mail_account_password: "{{ vault_gitlab_mail_account_password }}"
   ##
   # Пароль пользователя 'nextcloud'.
-  nextcloud_admin_mail_account_password: nextcloud
+  nextcloud_admin_mail_account_password: "{{ vault_nextcloud_admin_mail_account_password }}"
   ##
   # Хеш пароля пользователя 'admin' сервиса portainer. Генерируется так:
   # docker run --rm httpd:2.4-alpine htpasswd -nbB admin portainer | cut -d ":" -f 2 | sed 's/\$/\$\$/g'
