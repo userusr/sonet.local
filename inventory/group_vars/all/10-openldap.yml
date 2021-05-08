@@ -5,20 +5,8 @@ openldap:
   ldap_base_dn: "dc=sonet,dc=local"
   ldap_admin_password: "{{ vault_ldap_admin_password }}"
   ldap_config_password: "{{ vault_ldap_config_password }}"
-  ldap_readonly_user: 'true'
   ldap_readonly_user_username: "readonly"
   ldap_readonly_user_password: "{{ vault_ldap_readonly_user_password }}"
-  ldap_tls: "true"
-  ldap_tls_crt_filename: "cert.crt"
-  ldap_tls_key_filename: "cert.key"
-  ldap_tls_dh_param_filename: "dhparam.pem"
-  ldap_tls_ca_crt_filename: "ca.crt"
-  ldap_tls_enforce: "false"
-  ldap_tls_cipher_suite: "SECURE256:-VERS-SSL3.0"
-  ldap_tls_verify_client: "try"
-  keep_existing_config: "false"
-  ldap_remove_config_after_setup: "true"
-  ldap_ssl_helper_prefix: "ldap"
   preset_ldiff:
     users:
       lpervov: { person: true, id: 20201, sn: Первов, displayName: "Первов Л.", givenName: Лев, ou: Редакция, userPassword: "{{ vault_ldap_user_default_password }}" }
