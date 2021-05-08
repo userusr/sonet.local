@@ -10,7 +10,12 @@ redmine:
   ldap_attr_lastname: sn
   ldap_attr_mail: mail
   ldap_filter: "(&(objectClass=person)(memberOf=cn=redmine_users,ou=groups,{{ openldap['ldap_base_dn'] }}))"
-  admin_mail_account_password: "{{ conf['redmine_admin_mail_account_password'] }}"
+  smtp_address: "{{ mailserv['hostname'] }}.{{ mailserv['domain'] }}"
+  smtp_port: 25
+  smtp_authentication: ":login"
+  smtp_domain: "{{ mailserv['domain'] }}"
+  smtp_user_name: 'redmine'
+  smtp_password: "{{ conf['redmine_admin_mail_account_password'] }}"
   plugins_and_themes:
     - { url: "https://github.com/fraoustin/RTMaterial.git", tag: "0.1.8", dest: "{{ local_path }}/images/redmine/service/redmine/themes/RTMaterial" }
     - { url: "https://github.com/AlphaNodes/additional_tags.git", tag: "1.0.0", dest: "{{ local_path }}/images/redmine/service/redmine/plugins/additional_tags" }
