@@ -25,8 +25,10 @@ conf:
   #
   # https://hub.docker.com/_/caddy?tab=tags&page=1&ordering=last_updated
   docker_tag_caddy: "2.3.0"
-  # https://hub.docker.com/r/coredns/coredns/tags?page=1&ordering=last_updated
-  docker_tag_coredns: "1.8.3"
+  # https://hub.docker.com/_/golang?tab=tags&page=1&ordering=last_updated
+  docker_tag_coredns_golang: "1.16.4-buster"
+  # https://github.com/coredns/coredns.git
+  git_tag_coredns: "v1.8.3"
   # https://hub.docker.com/r/excalidraw/excalidraw/tags?page=1&ordering=last_updated
   docker_tag_excalidraw: "latest"
   # https://hub.docker.com/r/gitlab/gitlab-ce/tags?page=1&ordering=last_updated
