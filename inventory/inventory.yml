@@ -6,6 +6,7 @@ all:
       ansible_python_interpreter: python3
       local_path: "{{ local_playbook_path }}/build/sonet_local"
       docker_data_dir: "{{ local_playbook_path }}/build/sonet_local/docker"
+      backup_dir: "{{ local_playbook_path }}/build/sonet_local/backup"
       docker_bind_ip: 127.0.0.1
       generate_service_certs: true
       include_service:
@@ -26,6 +27,7 @@ all:
       ansible_python_interpreter: python3
       local_path: "{{ local_playbook_path }}/build/sonet_docker_mashine"
       docker_data_dir: "/opt/{{ project }}/docker"
+      backup_dir: "/opt/{{ project }}/backup"
       docker_registry_url: "{{ local_docker_registry_addr }}:{{ local_docker_registry_port }}"
       generate_service_certs: true
       include_service:

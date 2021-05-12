@@ -1,5 +1,23 @@
 ---
 nextcloud:
+  ldap_host: ldap
+  ldap_port: 389
+  ldap_base: "{{ openldap['ldap_base_dn'] }}"
+  ldap_agent_name: "cn={{ openldap['ldap_readonly_user_username'] }},{{ openldap['ldap_base_dn'] }}"
+  ldap_agent_password: "{{ openldap['ldap_readonly_user_password'] }}"
+  ldap_email_attribute: mail
+  ldap_gid_number: gidNumber
+  ldap_group_display_name: description
+  ldap_group_filter: "(&(|(objectclass=groupOfUniqueNames))(|(cn=colleagues)(cn=managers)))"
+  ldap_group_filter_objectclass: groupOfUniqueNames
+  ldap_group_member_assoc_attr: uniqueMember
+  ldap_login_filter: "(&(&(|(objectclass=person))(|(memberof=cn=nextcloud_users,ou=groups,{{ openldap['ldap_base_dn'] }})))(|(cn=%uid)))"
+  ldap_login_filter_attributes: cn
+  ldap_userdisplay_name: displayname
+  ldap_user_filter: "(&(|(objectclass=person))(|(memberof=cn=nextcloud_users,ou=groups,{{ openldap['ldap_base_dn'] }})))"
+  ldap_user_filter_groups: nextcloud
+  ldap_user_filter_objectclass: person
+  ldap_configuration_active: 1
   apps:
     - { url: "https://github.com/nextcloud/mail/releases/download/v1.9.5/mail.tar.gz", dest: "{{ local_playbook_path }}/nextcloud/apps/mail.tar.gz" }
     - { url: "https://github.com/nextcloud/groupfolders/releases/download/v9.0.1/groupfolders.tar.gz", dest: "{{ local_playbook_path }}/nextcloud/apps/groupfolders.tar.gz" }
