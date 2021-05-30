@@ -24,3 +24,4 @@ redmine:
     - { url: "https://github.com/AlphaNodes/additional_tags.git", tag: "1.0.0", dest: "{{ local_path }}/images/redmine/service/redmine/plugins/additional_tags" }
     - { url: "https://github.com/AlphaNodes/additionals.git", tag: "3.0.2", dest: "{{ local_path }}/images/redmine/service/redmine/plugins/additionals" }
     - { url: "https://github.com/danmunn/redmine_dmsf.git", tag: "v2.4.6", dest: "{{ local_path }}/images/redmine/service/redmine/plugins/redmine_dmsf" }
+    - { url: "https://github.com/akpaevj/dashboard.git", tag: "1.0.10", dest: "{{ local_path }}/images/redmine/service/redmine/plugins/dashboard" }
