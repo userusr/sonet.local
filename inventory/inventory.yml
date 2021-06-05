@@ -22,6 +22,7 @@ all:
         - storage
         - nextcloud
         - portainer
+        - adminer
     sonet_docker_mashine:
       ansible_connection: local
       ansible_python_interpreter: python3
@@ -43,3 +44,4 @@ all:
         - storage
         - nextcloud
         - portainer
+        - adminer

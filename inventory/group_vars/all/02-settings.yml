@@ -63,3 +63,5 @@ conf:
   docker_tag_roundcube_postgres: "13"
   # https://hub.docker.com/r/osixia/light-baseimage/tags?page=1&ordering=last_updated
   docker_tag_storage_baseimage: "stable-amd64"
+  # https://hub.docker.com/_/adminer/?tab=tags&page=1&ordering=last_updated
+  docker_tag_adminer: "4.8.1"
