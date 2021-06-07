@@ -65,3 +65,16 @@ conf:
   docker_tag_storage_baseimage: "stable-amd64"
   # https://hub.docker.com/_/adminer/?tab=tags&page=1&ordering=last_updated
   docker_tag_adminer: "4.8.1"
+  # https://hub.docker.com/r/prom/pushgateway/tags?page=1&ordering=last_updated
+  docker_tag_pushgateway: "v1.4.1"
+  # https://hub.docker.com/r/prom/prometheus/tags?page=1&ordering=last_updated
+  docker_tag_prometheus: "v2.27.1"
+  # https://hub.docker.com/r/prom/node-exporter/tags?page=1&ordering=last_updated
+  docker_tag_node-exporter: "v1.1.2"
+  # https://hub.docker.com/r/grafana/grafana-image-renderer/tags?page=1&ordering=last_updated
+  docker_tag_grafana-image-renderer: "2.1.1"
+  # https://hub.docker.com/r/grafana/grafana/tags?page=1&ordering=last_updated
+  docker_tag_grafana: "8.0.0-beta3-ubuntu"
+  # https://hub.docker.com/r/google/cadvisor/tags?page=1&ordering=last_updated
+  docker_tag_cadvisor: "v0.33.0"
+

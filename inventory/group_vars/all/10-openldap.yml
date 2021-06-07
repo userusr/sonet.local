@@ -24,6 +24,15 @@ openldap:
           - gitlab
           - lpervov
           - avtorov
+      grafana_admins:
+        description: "Администраторы Grafana"
+        members:
+          - lpervov
+      grafana_editors:
+        description: "Пользователи Grafana"
+        members:
+          - avtorov
+          - itretiev
       redmine_users:
         description: "Пользователи Redmine"
         members:
