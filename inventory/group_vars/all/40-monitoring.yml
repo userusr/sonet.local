@@ -15,3 +15,13 @@ grafana:
 
   admin_group_dn: "cn=grafana_admins,ou=groups,{{ openldap['ldap_base_dn'] }}"
   editor_group_dn: "cn=grafana_editors,ou=groups,{{ openldap['ldap_base_dn'] }}"
+
+  plugins:
+    - flant-statusmap-panel
+    - grafana-piechart-panel
+    - grafana-polystat-panel
+    - michaeldmoore-multistat-panel
+    - vonage-status-panel
+    - yesoreyeram-boomtable-panel
+    - camptocamp-prometheus-alertmanager-datasource
+    - natel-influx-admin-panel
