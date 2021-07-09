@@ -15,3 +15,6 @@ redmine/themes/*
 !redmine/themes/.keep
 nextcloud/apps/*
 !nextcloud/apps/.keep
+
+# Vim swap
+*.swp
