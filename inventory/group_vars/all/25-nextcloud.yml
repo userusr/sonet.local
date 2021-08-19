@@ -32,6 +32,7 @@ nextcloud:
     - { url: "https://github.com/icewind1991/files_markdown/releases/download/v2.3.3/files_markdown.tar.gz", dest: "{{ local_path }}/images/nextcloud/service/nextcloud/apps/files_markdown.tar.gz" }
     - { url: "https://github.com/ACTom/files_mindmap/releases/download/v0.0.24/files_mindmap-0.0.24.tar.gz", dest: "{{ local_path }}/images/nextcloud/service/nextcloud/apps/files_mindmap.tar.gz" }
     - { url: "https://github.com/jhass/nextcloud-keeweb/releases/download/v0.6.5/keeweb-0.6.5.tar.gz", dest: "{{ local_path }}/images/nextcloud/service/nextcloud/apps/keeweb-0.6.5.tar.gz" }
-    - { url: "https://git.mdns.eu/nextcloud/passwords/-/jobs/12123/artifacts/raw/passwords.tar.gz", dest: "{{ local_path }}/images/nextcloud/service/nextcloud/apps/passwords.tar.gz" }
     - { url: "https://github.com/nickv-nextcloud/event_update_notification/releases/download/v1.2.0/event_update_notification-1.2.0.tar.gz", dest: "{{ local_path }}/images/nextcloud/service/nextcloud/apps/event_update_notification-1.2.0.tar.gz" }
     - { url: "https://h-software.de/nextcloud_apps/ldapcontacts/ldapcontacts-2.0.5.tar.gz", dest: "{{ local_path }}/images/nextcloud/service/nextcloud/apps/ldapcontacts-2.0.5.tar.gz" }
+    # can't connect to server
+    # - { url: "https://git.mdns.eu/nextcloud/passwords/-/jobs/12123/artifacts/raw/passwords.tar.gz", dest: "{{ local_path }}/images/nextcloud/service/nextcloud/apps/passwords.tar.gz" }
