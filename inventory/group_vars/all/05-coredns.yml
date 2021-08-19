@@ -11,8 +11,20 @@ coredns:
         - { hostname: '@', type: 'NS', address: "ns.{{ conf['domain'] }}." }
         - { hostname: '', type: 'MX', address: "10 mail.{{ conf['domain'] }}." }
         - { hostname: "ns.{{ conf['domain'] }}.", type: 'A', address: '10.20.1.1' }
-        - { hostname: "mail.{{ conf['domain'] }}.", type: 'A', address: '10.20.1.2' }
-        - { hostname: "{{ conf['ldap_hostname'] }}.{{ conf['domain'] }}.", type: 'A', address: '10.20.1.3' }
+        - { hostname: "{{ conf['ldap_hostname'] }}.{{ conf['domain'] }}.", type: 'CNAME', address: "ns.{{ conf['domain'] }}." }
+        - { hostname: "mail.{{ conf['domain'] }}.", type: 'CNAME', address: "ns.{{ conf['domain'] }}." }
+        - { hostname: "gitlab.{{ conf['domain'] }}.", type: 'CNAME', address: "ns.{{ conf['domain'] }}." }
+        - { hostname: "mattermost.{{ conf['domain'] }}.", type: 'CNAME', address: "ns.{{ conf['domain'] }}." }
+        - { hostname: "redmine.{{ conf['domain'] }}.", type: 'CNAME', address: "ns.{{ conf['domain'] }}." }
+        - { hostname: "ldapadmin.{{ conf['domain'] }}.", type: 'CNAME', address: "ns.{{ conf['domain'] }}." }
+        - { hostname: "storage.{{ conf['domain'] }}.", type: 'CNAME', address: "ns.{{ conf['domain'] }}." }
+        - { hostname: "pki.{{ conf['domain'] }}.", type: 'CNAME', address: "ns.{{ conf['domain'] }}." }
+        - { hostname: "excalidraw.{{ conf['domain'] }}.", type: 'CNAME', address: "ns.{{ conf['domain'] }}." }
+        - { hostname: "owncloud.{{ conf['domain'] }}.", type: 'CNAME', address: "ns.{{ conf['domain'] }}." }
+        - { hostname: "nextcloud.{{ conf['domain'] }}.", type: 'CNAME', address: "ns.{{ conf['domain'] }}." }
+        - { hostname: "onlyoffice.{{ conf['domain'] }}.", type: 'CNAME', address: "ns.{{ conf['domain'] }}." }
+        - { hostname: "drawio.{{ conf['domain'] }}.", type: 'CNAME', address: "ns.{{ conf['domain'] }}." }
+        - { hostname: "portainer.{{ conf['domain'] }}.", type: 'CNAME', address: "ns.{{ conf['domain'] }}." }
     - zonefile: '1.20.10.in-addr.arpa.zone'
       name: '1.20.10.in-addr.arpa'
       domain_name: "@"
@@ -21,5 +33,3 @@ coredns:
       members:
         - { hostname: '@', type: 'NS', address: "ns.{{ conf['domain'] }}." }
         - { hostname: "ns.{{ conf['domain'] }}.", type: 'PTR', address: '10.20.1.1' }
-        - { hostname: "mail.{{ conf['domain'] }}.", type: 'PTR', address: '10.20.1.2' }
-        - { hostname: "{{ conf['ldap_hostname'] }}.{{ conf['domain'] }}.", type: 'PTR', address: '10.20.1.3' }
