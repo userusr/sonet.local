@@ -18,3 +18,6 @@ nextcloud/apps/*
 
 # Vim swap
 *.swp
+
+# Vagrant
+vagrant/.vagrant
