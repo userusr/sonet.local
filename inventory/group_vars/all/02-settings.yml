@@ -26,7 +26,7 @@ conf:
   # https://hub.docker.com/_/caddy?tab=tags&page=1&ordering=last_updated
   docker_tag_caddy: "2.3.0"
   # https://hub.docker.com/_/golang?tab=tags&page=1&ordering=last_updated
-  docker_tag_coredns_golang: "1.16.4-buster"
+  docker_tag_coredns_golang: "1.17.5-buster"
   # https://github.com/coredns/coredns.git
   git_tag_coredns: "v1.8.3"
   # https://hub.docker.com/r/excalidraw/excalidraw/tags?page=1&ordering=last_updated
@@ -44,7 +44,7 @@ conf:
   # https://hub.docker.com/r/jgraph/export-server/tags?page=1&ordering=last_updated
   docker_tag_nextcloud_drawio_export_server: "latest"
   # https://hub.docker.com/r/onlyoffice/documentserver/tags?page=1&ordering=last_updated
-  docker_tag_nextcloud_onlyoffice_ds: "6.2"
+  docker_tag_nextcloud_onlyoffice_ds: "6.4"
   # https://hub.docker.com/_/redis?tab=tags&page=1&ordering=last_updated
   docker_tag_redmine_redis: "6.2.2"
   # https://hub.docker.com/r/osixia/openldap/tags?page=1&ordering=last_updated

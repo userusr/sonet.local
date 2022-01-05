@@ -17,11 +17,11 @@ redmine:
   smtp_user_name: 'redmine'
   smtp_password: "{{ conf['redmine_admin_mail_account_password'] }}"
   plugins_and_themes:
-    - { url: "https://github.com/fraoustin/RTMaterial.git", tag: "0.1.8", dest: "{{ local_path }}/images/redmine/service/redmine/themes/RTMaterial" }
-    - { url: "https://github.com/Nitrino/flatly_light_redmine.git", tag: "v0.2.4", dest: "{{ local_path }}/images/redmine/service/redmine/themes/flatly_light_redmine" }
-    - { url: "https://github.com/mrliptontea/PurpleMine2.git", tag: "v2.15.0", dest: "{{ local_path }}/images/redmine/service/redmine/themes/PurpleMine2" }
-    - { url: "https://github.com/makotokw/redmine-theme-gitmike.git", tag: " v1.2.1", dest: "{{ local_path }}/images/redmine/service/redmine/themes/redmine-theme-gitmike" }
-    - { url: "https://github.com/AlphaNodes/additional_tags.git", tag: "1.0.0", dest: "{{ local_path }}/images/redmine/service/redmine/plugins/additional_tags" }
-    - { url: "https://github.com/AlphaNodes/additionals.git", tag: "3.0.2", dest: "{{ local_path }}/images/redmine/service/redmine/plugins/additionals" }
-    - { url: "https://github.com/danmunn/redmine_dmsf.git", tag: "v2.4.6", dest: "{{ local_path }}/images/redmine/service/redmine/plugins/redmine_dmsf" }
-    - { url: "https://github.com/akpaevj/dashboard.git", tag: "1.0.10", dest: "{{ local_path }}/images/redmine/service/redmine/plugins/dashboard" }
+    - { url: "https://github.com/fraoustin/RTMaterial/archive/refs/heads/master.zip", dest: "{{ local_path }}/images/redmine/service/redmine/themes/RTMaterial.zip" }
+    - { url: "https://github.com/Nitrino/flatly_light_redmine/archive/refs/heads/master.zip", dest: "{{ local_path }}/images/redmine/service/redmine/themes/flatly_light_redmine.zip" }
+    - { url: "https://github.com/mrliptontea/PurpleMine2/archive/refs/heads/master.zip", dest: "{{ local_path }}/images/redmine/service/redmine/themes/PurpleMine2.zip" }
+    - { url: "https://github.com/makotokw/redmine-theme-gitmike/archive/refs/heads/master.zip", dest: "{{ local_path }}/images/redmine/service/redmine/themes/redmine-theme-gitmike.zip" }
+    - { url: "https://github.com/AlphaNodes/additional_tags/archive/refs/heads/master.zip", dest: "{{ local_path }}/images/redmine/service/redmine/plugins/additional_tags.zip" }
+    - { url: "https://github.com/AlphaNodes/additionals/archive/refs/heads/master.zip", dest: "{{ local_path }}/images/redmine/service/redmine/plugins/additionals.zip" }
+    - { url: "https://github.com/danmunn/redmine_dmsf/archive/refs/heads/master.zip", dest: "{{ local_path }}/images/redmine/service/redmine/plugins/redmine_dmsf.zip" }
+    - { url: "https://github.com/akpaevj/dashboard/archive/refs/heads/master.zip", dest: "{{ local_path }}/images/redmine/service/redmine/plugins/dashboard.zip" }
