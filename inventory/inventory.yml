@@ -1,12 +1,13 @@
 ---
 all:
   hosts:
-    sonet_local:
+    generate_local:
       ansible_connection: local
       ansible_python_interpreter: python3
-      local_path: "{{ local_playbook_path }}/build/sonet_local"
-      docker_data_dir: "{{ local_playbook_path }}/build/sonet_local/docker"
+      local_path: "{{ local_playbook_path }}/build/sonet_local/source"
+      docker_data_dir: "{{ local_playbook_path }}/build/sonet_local/data"
       backup_dir: "{{ local_playbook_path }}/build/sonet_local/backup"
+      pki_path: "{{ local_playbook_path }}/build/sonet_local/pki"
       docker_bind_ip: 127.0.0.1
       generate_service_certs: true
       include_service:
