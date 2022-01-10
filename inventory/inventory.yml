@@ -4,9 +4,9 @@ all:
     generate_local:
       ansible_connection: local
       ansible_python_interpreter: python3
-      local_path: "{{ local_playbook_path }}/build/sonet_local/source"
-      docker_data_dir: "{{ local_playbook_path }}/build/sonet_local/data"
-      backup_dir: "{{ local_playbook_path }}/build/sonet_local/backup"
+      build_path: "{{ local_playbook_path }}/build/sonet_local/source"
+      docker_data_path: "{{ local_playbook_path }}/build/sonet_local/data"
+      backup_path: "{{ local_playbook_path }}/build/sonet_local/backup"
       pki_path: "{{ local_playbook_path }}/build/sonet_local/pki"
       docker_bind_ip: 127.0.0.1
       generate_service_certs: true
@@ -28,9 +28,9 @@ all:
     sonet_docker_mashine:
       ansible_connection: local
       ansible_python_interpreter: python3
-      local_path: "{{ local_playbook_path }}/build/sonet_docker_mashine"
-      docker_data_dir: "/opt/{{ project }}/docker"
-      backup_dir: "/opt/{{ project }}/backup"
+      build_path: "{{ local_playbook_path }}/build/sonet_docker_mashine"
+      docker_data_path: "/opt/{{ project }}/docker"
+      backup_path: "/opt/{{ project }}/backup"
       docker_registry_url: "{{ local_docker_registry_addr }}:{{ local_docker_registry_port }}"
       generate_service_certs: true
       include_service:
