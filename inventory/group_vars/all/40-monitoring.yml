@@ -1,10 +1,10 @@
 ---
 grafana:
   ldap_host: "{{ conf['ldap_hostname'] }}"
-  ldap_account: "cn={{ openldap['ldap_readonly_user_username'] }},{{ openldap['ldap_base_dn'] }}"
+  ldap_account: "cn={{ openldap['ldap_readonly_user_username'] }},{{ conf['ldap_base_dn'] }}"
   ldap_account_password: "{{ openldap['ldap_readonly_user_password'] }}"
 
-  ldap_base_dn: "ou=users,{{ openldap['ldap_base_dn'] }}"
+  ldap_base_dn: "ou=users,{{ conf['ldap_base_dn'] }}"
   ldap_search_filter: "(cn=%s)"
 
   ldap_name: "givenName"
@@ -13,8 +13,8 @@ grafana:
   ldap_member_of: "memberOf"
   ldap_email:  "email"
 
-  admin_group_dn: "cn=grafana_admins,ou=groups,{{ openldap['ldap_base_dn'] }}"
-  editor_group_dn: "cn=grafana_editors,ou=groups,{{ openldap['ldap_base_dn'] }}"
+  admin_group_dn: "cn=grafana_admins,ou=groups,{{ conf['ldap_base_dn'] }}"
+  editor_group_dn: "cn=grafana_editors,ou=groups,{{ conf['ldap_base_dn'] }}"
 
   plugins:
     - flant-statusmap-panel

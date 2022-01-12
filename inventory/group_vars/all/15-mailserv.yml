@@ -3,8 +3,8 @@ mailserv:
   hostname: mail
   domain: "{{ conf['domain'] }}"
   ldap_url: "ldap://{{ conf['ldap_hostname'] }}:389"
-  ldap_base_dn: "{{ openldap['ldap_base_dn'] }}"
-  ldap_bind_dn: "cn={{ openldap['ldap_readonly_user_username'] }},{{ openldap['ldap_base_dn'] }}"
+  ldap_base_dn: "{{ conf['ldap_base_dn'] }}"
+  ldap_bind_dn: "cn={{ openldap['ldap_readonly_user_username'] }},{{ conf['ldap_base_dn'] }}"
   ldap_bind_pw: "{{ openldap['ldap_readonly_user_password'] }}"
   ssl_crt_filename: cert.crt
   ssl_key_filename: cert.key
@@ -14,7 +14,7 @@ mailserv:
 
   dovecot:
     uris: "ldap://{{ conf['ldap_hostname'] }}:389"
-    base: "ou=users,{{ openldap['ldap_base_dn'] }}"
+    base: "ou=users,{{ conf['ldap_base_dn'] }}"
     user_attrs: "mailuserquota=quota_rule=*:bytes=%$"
     user_filter: "(&(objectClass=mailAccount)(mail=%u)(mailenable=OK))"
     pass_attrs: "mail=user,userPassword=password"
@@ -24,24 +24,24 @@ mailserv:
 
   postfix:
     accounts:
-      search_base: "ou=users,{{ openldap['ldap_base_dn'] }}"
+      search_base: "ou=users,{{ conf['ldap_base_dn'] }}"
       query_filter: "(&(objectClass=mailAccount)(mailenable=OK)(mail=%s))"
       result_attribute: mailbox
     aliases:
-      search_base: "ou=users,{{ openldap['ldap_base_dn'] }}"
+      search_base: "ou=users,{{ conf['ldap_base_dn'] }}"
       query_filter: "(&(objectClass=mailAccount)(mailalias=%s)(mailenable=OK))"
       result_attribute: mail
     domains:
-      search_base: "ou=mailDomains,{{ openldap['ldap_base_dn'] }}"
+      search_base: "ou=mailDomains,{{ conf['ldap_base_dn'] }}"
       query_filter: "(&(objectClass=mailDomain)(virtualdomain=%s))"
       result_attribute: virtualdomain
     senders:
-      search_base: "ou=users,{{  openldap['ldap_base_dn'] }}"
+      search_base: "ou=users,{{  conf['ldap_base_dn'] }}"
       query_filter: "(&(objectClass=mailAccount)(mailenable=OK)(|(mail=%s)(mailalias=%s)))"
       result_attribute: mail,mailalias
       special_result_attribute: mailaliasmember
     valiases:
-      search_base: "ou=mailAliases,{{ openldap['ldap_base_dn'] }}"
+      search_base: "ou=mailAliases,{{ conf['ldap_base_dn'] }}"
       query_filter: "(&(objectClass=mailAlias)(mailalias=%s)(mailenable=OK))"
       result_attribute: mail
       special_result_attribute: mailaliasmember
@@ -69,8 +69,8 @@ mailserv:
               'port' => 389,
               'use_tls' => false,
               'user_specific' => false,
-              'base_dn' => '{{ openldap['ldap_base_dn'] }}', //Где выполнять поиск
-              'bind_dn' => 'cn={{ openldap['ldap_readonly_user_username'] }},{{ openldap['ldap_base_dn'] }}', //Авторизация на контроллере домена
+              'base_dn' => '{{ conf['ldap_base_dn'] }}', //Где выполнять поиск
+              'bind_dn' => 'cn={{ openldap['ldap_readonly_user_username'] }},{{ conf['ldap_base_dn'] }}', //Авторизация на контроллере домена
               'bind_pass' => '{{ openldap['ldap_readonly_user_password'] }}', //Авторизация на контроллере домена
               'writable' => false,
               'ldap_version' => 3,

@@ -20,6 +20,7 @@ conf:
   # Hostname и alias для сервиса openldap. Нужен для доступа клиентов к LDAP.
   # Нужно изменить в случае использования внешнего сервера LDAP.
   ldap_hostname: 'ldap'
+  ldap_base_dn: "dc=sonet,dc=local"
   ##
   # Версии используемых docker images.
   #
