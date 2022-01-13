@@ -4,8 +4,8 @@ mailserv:
   domain: "{{ conf['domain'] }}"
   ldap_url: "ldap://{{ conf['ldap_hostname'] }}:389"
   ldap_base_dn: "{{ conf['ldap_base_dn'] }}"
-  ldap_bind_dn: "cn={{ openldap['ldap_readonly_user_username'] }},{{ conf['ldap_base_dn'] }}"
-  ldap_bind_pw: "{{ openldap['ldap_readonly_user_password'] }}"
+  ldap_bind_dn: "cn={{ conf['ldap_readonly_user_username'] }},{{ conf['ldap_base_dn'] }}"
+  ldap_bind_pw: "{{ conf['ldap_readonly_user_password'] }}"
   ssl_crt_filename: cert.crt
   ssl_key_filename: cert.key
   ssl_ca_crt_filename: ca.crt

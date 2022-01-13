@@ -3,8 +3,8 @@ nextcloud:
   ldap_host: ldap
   ldap_port: 389
   ldap_base: "{{ conf['ldap_base_dn'] }}"
-  ldap_agent_name: "cn={{ openldap['ldap_readonly_user_username'] }},{{ conf['ldap_base_dn'] }}"
-  ldap_agent_password: "{{ openldap['ldap_readonly_user_password'] }}"
+  ldap_agent_name: "cn={{ conf['ldap_readonly_user_username'] }},{{ conf['ldap_base_dn'] }}"
+  ldap_agent_password: "{{ conf['ldap_readonly_user_password'] }}"
   ldap_email_attribute: mail
   ldap_gid_number: gidNumber
   ldap_group_display_name: description

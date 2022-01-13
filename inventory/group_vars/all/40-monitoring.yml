@@ -1,8 +1,8 @@
 ---
 grafana:
   ldap_host: "{{ conf['ldap_hostname'] }}"
-  ldap_account: "cn={{ openldap['ldap_readonly_user_username'] }},{{ conf['ldap_base_dn'] }}"
-  ldap_account_password: "{{ openldap['ldap_readonly_user_password'] }}"
+  ldap_account: "cn={{ conf['ldap_readonly_user_username'] }},{{ conf['ldap_base_dn'] }}"
+  ldap_account_password: "{{ conf['ldap_readonly_user_password'] }}"
 
   ldap_base_dn: "ou=users,{{ conf['ldap_base_dn'] }}"
   ldap_search_filter: "(cn=%s)"

@@ -21,6 +21,8 @@ conf:
   # Нужно изменить в случае использования внешнего сервера LDAP.
   ldap_hostname: 'ldap'
   ldap_base_dn: "dc=sonet,dc=local"
+  ldap_readonly_user_username: "readonly"
+  ldap_readonly_user_password: "{{ vault_ldap_readonly_user_password }}"
   ##
   # Версии используемых docker images.
   #

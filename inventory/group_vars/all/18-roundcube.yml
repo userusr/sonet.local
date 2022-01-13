@@ -20,8 +20,8 @@
               'use_tls' => false,
               'user_specific' => false,
               'base_dn' => '{{ conf['ldap_base_dn'] }}', //Где выполнять поиск
-              'bind_dn' => 'cn={{ openldap['ldap_readonly_user_username'] }},{{ conf['ldap_base_dn'] }}', //Авторизация на контроллере домена
-              'bind_pass' => '{{ openldap['ldap_readonly_user_password'] }}', //Авторизация на контроллере домена
+              'bind_dn' => 'cn={{ conf['ldap_readonly_user_username'] }},{{ conf['ldap_base_dn'] }}', //Авторизация на контроллере домена
+              'bind_pass' => '{{ conf['ldap_readonly_user_password'] }}', //Авторизация на контроллере домена
               'writable' => false,
               'ldap_version' => 3,
               'search_fields' => array(
