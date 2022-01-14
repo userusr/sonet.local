@@ -4,11 +4,3 @@ storage:
   smb_shares:
     - { name: public, dir: public }
     - { name: library, dir: library }
-
-  proftpd:
-    LDAPServer: "{{ conf['ldap_hostname'] }}:389"
-    LDAPProtocolVersion: 3
-    LDAPAuthBinds: 'on'
-    LDAPBindDN: "\"cn={{ conf['ldap_readonly_user_username'] }},{{ conf['ldap_base_dn'] }}\" \"{{ conf['ldap_readonly_user_password'] }}\""
-    LDAPUsers: "ou=users,{{ conf['ldap_base_dn'] }} \"(&(cn=%u)(objectclass=posixAccount)(memberOf=cn=storage_admins,ou=groups,{{ conf['ldap_base_dn'] }}))\""
-    LDAPGroups: "ou=groups,{{ conf['ldap_base_dn'] }}"
