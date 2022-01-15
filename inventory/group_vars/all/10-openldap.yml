@@ -1,9 +1,6 @@
 ---
 openldap:
-  ldap_log_level: "256"
   ldap_organisation: "Sonet"
-  ldap_admin_password: "{{ vault_ldap_admin_password }}"
-  ldap_config_password: "{{ vault_ldap_config_password }}"
   preset_ldiff:
     users:
       lpervov: { person: true, id: 20201, sn: Первов, displayName: "Первов Л.", givenName: Лев, ou: Редакция, userPassword: "{{ vault_ldap_user_default_password }}" }
