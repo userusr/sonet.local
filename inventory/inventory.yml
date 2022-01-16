@@ -24,5 +24,6 @@ all:
         - nextcloud
         - portainer
         - adminer
+        - grafana
         - monitoring
         - control-files
