@@ -3,4 +3,3 @@
   hosts: "generate_local"
   roles:
     - role: './sonet/roles/services'
-    - role: './sonet/roles/generate_compose'

@@ -1,5 +1,6 @@
 ---
 proftpd:
+  sftp_port: 2221
   conf: |
     SetEnv TZ :/etc/localtime
 

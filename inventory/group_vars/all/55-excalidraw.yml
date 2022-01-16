@@ -1,0 +1,8 @@
+---
+excalidraw_docker_service: |2
+    excalidraw:
+      container_name: {{project}}-excalidraw
+      image:  {{registry_url}}{{project}}-excalidraw:latest
+      restart: always
+      networks:
+        - net

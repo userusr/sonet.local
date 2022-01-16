@@ -1,0 +1,19 @@
+---
+storage_docker_service: |2
+    storage:
+      container_name: {{project}}-storage
+      image:  {{registry_url}}{{project}}-storage:latest
+      restart: always
+      volumes:
+        - {{docker_data_path}}/storage/proftpd/var/log/proftpd:/var/log/proftpd
+    {% for share in smb['smb_shares'] %}
+      - {{docker_data_path}}/storage/storage/{{ share["name"] }}:/opt/var/storage/{{ share["name"] }}
+    {% endfor %}
+    ports:
+        - "{{bind_ip}}137:137/udp"
+        - "{{bind_ip}}138:138/udp"
+        - "{{bind_ip}}139:139/tcp"
+        - "{{bind_ip}}445:445/tcp"
+        - "{{bind_ip}}{{ proftpd['sftp_port' ]}}:22/tcp"
+      networks:
+        - net

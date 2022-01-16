@@ -57,3 +57,53 @@ openldap:
           - itretiev
           - pchetvertov
           - opyatov
+
+openldap_docker_service: |2
+    openldap:
+      container_name: {{project}}-openldap
+      image:  {{registry_url}}{{project}}-openldap:latest
+      restart: always
+      environment:
+        LDAP_LOG_LEVEL: "256"
+        LDAP_ORGANISATION: "{{ project }}"
+        LDAP_DOMAIN: "{{ conf['domain'] }}"
+        LDAP_ADMIN_PASSWORD: "{{ vault_ldap_admin_password }}"
+        LDAP_CONFIG_PASSWORD: "{{ vault_ldap_config_password }}"
+        LDAP_READONLY_USER: "true"
+        LDAP_READONLY_USER_USERNAME: "{{ conf['ldap_readonly_user_username'] }}"
+        LDAP_READONLY_USER_PASSWORD: "{{ conf['ldap_readonly_user_password'] }}"
+        LDAP_TLS: "true"
+        LDAP_TLS_CRT_FILENAME: "cert.crt"
+        LDAP_TLS_KEY_FILENAME: "cert.key"
+        LDAP_TLS_DH_PARAM_FILENAME: "dhparam.pem"
+        LDAP_TLS_CA_CRT_FILENAME: "ca.crt"
+        LDAP_TLS_ENFORCE: "false"
+        LDAP_TLS_CIPHER_SUITE: "SECURE256:-VERS-SSL3.0"
+        LDAP_TLS_VERIFY_CLIENT: "try"
+        KEEP_EXISTING_CONFIG: "false"
+        LDAP_REMOVE_CONFIG_AFTER_SETUP: "true"
+        LDAP_SSL_HELPER_PREFIX: "ldap"
+      volumes:
+        - {{docker_data_path}}/openldap/var/lib/ldap:/var/lib/ldap
+        - {{docker_data_path}}/openldap/etc/ldap/slapd.d:/etc/ldap/slapd.d
+      ports:
+        - "{{bind_ip}}636:636/tcp"
+      domainname: "{{ conf['domain'] }}"
+      hostname: "{{ conf['ldap_hostname'] }}"
+      networks:
+        net:
+          aliases:
+            - "{{ conf['ldap_hostname'] }}"
+            - "{{ conf['ldap_hostname'] }}.{{ conf['domain'] }}"
+
+    phpldapadmin:
+      container_name: {{project}}-phpldapadmin
+      image:  {{registry_url}}{{project}}-phpldapadmin:latest
+      restart: always
+      environment:
+        PHPLDAPADMIN_LDAP_HOSTS: "openldap"
+        PHPLDAPADMIN_HTTPS: "false"
+      depends_on:
+        - openldap
+      networks:
+        - net

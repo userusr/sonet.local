@@ -14,3 +14,25 @@ mailserv:
 
   backup_cron_exp: 30 4 * * *  # every day at 4:30am
   backup_ttl: 15   # delete backups that are over 15 days
+
+mailserv_docker_service: |2
+    mailserv:
+      container_name: {{project}}-mailserv
+      image:  {{registry_url}}{{project}}-mailserv:latest
+      restart: always
+      volumes:
+        - {{docker_data_path}}/mailserv/var/mail:/var/mail
+        - {{docker_data_path}}/mailserv/data/backup:/data/backup
+      ports:
+        # Expose smtp, pop3, imap, smtp (submission), imap ssl, managesieve and dovecot replication ports
+        - "{{bind_ip}}25:25/tcp"
+        - "{{bind_ip}}143:143/tcp"
+        - "{{bind_ip}}587:587/tcp"
+        - "{{bind_ip}}993:993/tcp"
+      domainname: "{{ mailserv['domain'] }}"
+      hostname: "{{ mailserv['hostname'] }}"
+      networks:
+        net:
+          aliases:
+            - "{{ mailserv['hostname'] }}"
+            - "{{ mailserv['hostname'] }}.{{ mailserv['domain'] }}"
