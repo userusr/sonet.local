@@ -6,6 +6,8 @@ gitlab_docker_service: |2
       # hostname: 'gitlab.{{ conf['domain'] }}'
       restart: always
       environment:
+        GITLAB_ROOT_EMAIL: gitlab@{{ conf['domain'] }}
+        GITLAB_ROOT_PASSWORD: {{ vault_gitlab_root_account_password }}
         GITLAB_OMNIBUS_CONFIG: |
           external_url 'https://gitlab.{{ conf['domain'] }}'
           mattermost_external_url 'https://mattermost.{{ conf['domain'] }}'
@@ -28,6 +30,8 @@ gitlab_docker_service: |2
           gitlab_rails['smtp_enable_starttls_auto'] = false
           gitlab_rails['smtp_ssl'] = false
           gitlab_rails['smtp_force_ssl'] = false
+          gitlab_rails['smtp_user_name'] = 'gitlab@{{ conf['domain'] }}'
+          gitlab_rails['smtp_password'] = '{{ vault_gitlab_mail_account_password }}'
           gitlab_rails['gitlab_email_from'] = 'gitlab@{{ conf['domain'] }}'
           gitlab_rails['gitlab_email_reply_to'] = 'noreply@{{ conf['domain'] }}'
           gitlab_rails['ldap_enabled'] = true

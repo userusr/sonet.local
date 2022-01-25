@@ -7,9 +7,6 @@ conf:
   # Пароль пользователя 'redmine'.
   redmine_admin_mail_account_password: "{{ vault_redmine_admin_mail_account_password }}"
   ##
-  # Пароль пользователя 'gitlab'.
-  gitlab_mail_account_password: "{{ vault_gitlab_mail_account_password }}"
-  ##
   # Пароль пользователя 'nextcloud'.
   nextcloud_admin_mail_account_password: "{{ vault_nextcloud_admin_mail_account_password }}"
   ##

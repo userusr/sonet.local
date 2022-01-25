@@ -9,7 +9,7 @@ openldap:
       pchetvertov: { person: true, id: 20204, sn: Четвертов, displayName: "Четвертов П.", givenName: Павел, ou: Редакция, userPassword: "{{ vault_ldap_user_default_password }}" }
       opyatov: { person: true, id: 20205, sn: Пятов, displayName: "Пятов О.", givenName: Олег, ou: Редакция, userPassword: "{{ vault_ldap_user_default_password }}" }
       redmine: { person: false, userPassword: "{{ conf['redmine_admin_mail_account_password'] }}" }
-      gitlab: { person: false, userPassword: "{{ conf['gitlab_mail_account_password'] }}" }
+      gitlab: { person: false, userPassword: "{{ vault_gitlab_mail_account_password }}" }
       nextcloud: { person: false, userPassword: "{{ conf['nextcloud_admin_mail_account_password'] }}" }
     groups:
       gitlab_users:
