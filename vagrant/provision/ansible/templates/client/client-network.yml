@@ -8,8 +8,8 @@ network:
       dhcp4-overrides:
         use-dns: no
     eth1:
-      addresses: [{{ client_addresses }}]
-      gateway4: {{ client_gateway4 }}
+      addresses: ["{{ client_addresses }}"]
+      gateway4: "{{ client_gateway4 }}"
       nameservers:
-        addresses: [{{ client_nameserver_addresses }}]
-        search: [{{ client_nameserver_search }}]
+        addresses: ["{{ client_nameserver_addresses }}"]
+        search: ["{{ client_nameserver_search }}"]

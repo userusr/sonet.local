@@ -34,39 +34,39 @@ cat <<EOF>inventory/group_vars/all/05-coredns.yml
 coredns:
   root_forward: [ '8.8.8.8' ]
   zones:
-    - zonefile: "{{ conf['domain'] }}.zone"
-      name: "{{ conf['domain'] }}"
+    - zonefile: "{{ sonet_general['domain'] }}.zone"
+      name: "{{ sonet_general['domain'] }}"
       domain_name: "@"
-      name_server_fqdn: "ns.{{ conf['domain'] }}."
-      admin_email: "root@ns.{{ conf['domain'] }}."
+      name_server_fqdn: "ns.{{ sonet_general['domain'] }}."
+      admin_email: "root@ns.{{ sonet_general['domain'] }}."
       members:
-        - { hostname: '@', type: 'NS', address: "ns.{{ conf['domain'] }}." }
-        - { hostname: '', type: 'MX', address: "10 mail.{{ conf['domain'] }}." }
-        - { hostname: "ns.{{ conf['domain'] }}.", type: 'A', address: "${bind_ip}" }
-        - { hostname: "{{ conf['ldap_hostname'] }}.{{ conf['domain'] }}.", type: 'CNAME', address: "ns.{{ conf['domain'] }}." }
-        - { hostname: "mail.{{ conf['domain'] }}.", type: 'CNAME', address: "ns.{{ conf['domain'] }}." }
-        - { hostname: "gitlab.{{ conf['domain'] }}.", type: 'CNAME', address: "ns.{{ conf['domain'] }}." }
-        - { hostname: "mattermost.{{ conf['domain'] }}.", type: 'CNAME', address: "ns.{{ conf['domain'] }}." }
-        - { hostname: "redmine.{{ conf['domain'] }}.", type: 'CNAME', address: "ns.{{ conf['domain'] }}." }
-        - { hostname: "ldapadmin.{{ conf['domain'] }}.", type: 'CNAME', address: "ns.{{ conf['domain'] }}." }
-        - { hostname: "storage.{{ conf['domain'] }}.", type: 'CNAME', address: "ns.{{ conf['domain'] }}." }
-        - { hostname: "pki.{{ conf['domain'] }}.", type: 'CNAME', address: "ns.{{ conf['domain'] }}." }
-        - { hostname: "excalidraw.{{ conf['domain'] }}.", type: 'CNAME', address: "ns.{{ conf['domain'] }}." }
-        - { hostname: "nextcloud.{{ conf['domain'] }}.", type: 'CNAME', address: "ns.{{ conf['domain'] }}." }
-        - { hostname: "onlyoffice.{{ conf['domain'] }}.", type: 'CNAME', address: "ns.{{ conf['domain'] }}." }
-        - { hostname: "drawio.{{ conf['domain'] }}.", type: 'CNAME', address: "ns.{{ conf['domain'] }}." }
-        - { hostname: "portainer.{{ conf['domain'] }}.", type: 'CNAME', address: "ns.{{ conf['domain'] }}." }
-        - { hostname: "grafana.{{ conf['domain'] }}.", type: 'CNAME', address: "ns.{{ conf['domain'] }}." }
-        - { hostname: "registry.{{ conf['domain'] }}.", type: 'CNAME', address: "ns.{{ conf['domain'] }}." }
-        - { hostname: "adminer.{{ conf['domain'] }}.", type: 'CNAME', address: "ns.{{ conf['domain'] }}." }
+        - { hostname: '@', type: 'NS', address: "ns.{{ sonet_general['domain'] }}." }
+        - { hostname: '', type: 'MX', address: "10 mail.{{ sonet_general['domain'] }}." }
+        - { hostname: "ns.{{ sonet_general['domain'] }}.", type: 'A', address: "${bind_ip}" }
+        - { hostname: "{{ sonet_general['ldap_hostname'] }}.{{ sonet_general['domain'] }}.", type: 'CNAME', address: "ns.{{ sonet_general['domain'] }}." }
+        - { hostname: "mail.{{ sonet_general['domain'] }}.", type: 'CNAME', address: "ns.{{ sonet_general['domain'] }}." }
+        - { hostname: "gitlab.{{ sonet_general['domain'] }}.", type: 'CNAME', address: "ns.{{ sonet_general['domain'] }}." }
+        - { hostname: "mattermost.{{ sonet_general['domain'] }}.", type: 'CNAME', address: "ns.{{ sonet_general['domain'] }}." }
+        - { hostname: "redmine.{{ sonet_general['domain'] }}.", type: 'CNAME', address: "ns.{{ sonet_general['domain'] }}." }
+        - { hostname: "ldapadmin.{{ sonet_general['domain'] }}.", type: 'CNAME', address: "ns.{{ sonet_general['domain'] }}." }
+        - { hostname: "storage.{{ sonet_general['domain'] }}.", type: 'CNAME', address: "ns.{{ sonet_general['domain'] }}." }
+        - { hostname: "pki.{{ sonet_general['domain'] }}.", type: 'CNAME', address: "ns.{{ sonet_general['domain'] }}." }
+        - { hostname: "excalidraw.{{ sonet_general['domain'] }}.", type: 'CNAME', address: "ns.{{ sonet_general['domain'] }}." }
+        - { hostname: "nextcloud.{{ sonet_general['domain'] }}.", type: 'CNAME', address: "ns.{{ sonet_general['domain'] }}." }
+        - { hostname: "onlyoffice.{{ sonet_general['domain'] }}.", type: 'CNAME', address: "ns.{{ sonet_general['domain'] }}." }
+        - { hostname: "drawio.{{ sonet_general['domain'] }}.", type: 'CNAME', address: "ns.{{ sonet_general['domain'] }}." }
+        - { hostname: "portainer.{{ sonet_general['domain'] }}.", type: 'CNAME', address: "ns.{{ sonet_general['domain'] }}." }
+        - { hostname: "grafana.{{ sonet_general['domain'] }}.", type: 'CNAME', address: "ns.{{ sonet_general['domain'] }}." }
+        - { hostname: "registry.{{ sonet_general['domain'] }}.", type: 'CNAME', address: "ns.{{ sonet_general['domain'] }}." }
+        - { hostname: "adminer.{{ sonet_general['domain'] }}.", type: 'CNAME', address: "ns.{{ sonet_general['domain'] }}." }
     - zonefile: "${rev_ip}.in-addr.arpa.zone"
       name: "${rev_ip}.in-addr.arpa.zone"
       domain_name: "@"
-      name_server_fqdn: "ns.{{ conf['domain'] }}."
-      admin_email: "root@ns.{{ conf['domain'] }}."
+      name_server_fqdn: "ns.{{ sonet_general['domain'] }}."
+      admin_email: "root@ns.{{ sonet_general['domain'] }}."
       members:
-        - { hostname: '@', type: 'NS', address: "ns.{{ conf['domain'] }}." }
-        - { hostname: "ns.{{ conf['domain'] }}.", type: 'PTR', address: "${bind_ip}" }
+        - { hostname: '@', type: 'NS', address: "ns.{{ sonet_general['domain'] }}." }
+        - { hostname: "ns.{{ sonet_general['domain'] }}.", type: 'PTR', address: "${bind_ip}" }
 EOF
 
 make init

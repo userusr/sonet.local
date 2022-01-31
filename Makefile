@@ -6,7 +6,7 @@
 
 PROJECT ?= sonet
 INVENTORY ?= ../inventory
-PLAYBOOK ?= ../playbook.yml
+PLAYBOOK ?= ../configs/sonet_local/playbook.yml
 ANSIBLE_ASK_BECOME_PASS ?= 0
 ANSIBLE_VAULT_CLIENT_SCRIPT ?= ./tools/vault-env-client.py
 ANSIBLE_VAULT_PASSWORD ?= sonet
