@@ -73,4 +73,4 @@ EOF
 make init
 make build
 
-./build/sonet_local/sonet up ${up_services}
+./build/sonet_local/source/sonet up ${up_services}
