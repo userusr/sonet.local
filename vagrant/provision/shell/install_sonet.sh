@@ -4,8 +4,6 @@ set -Eeuo pipefail
 export DOCKER_CLIENT_TIMEOUT=240
 export COMPOSE_HTTP_TIMEOUT=240
 
-[ -d ~/sonet.local ] && exit 0
-
 bind_ip=127.0.0.1
 rev_ip=0.0.127
 up_services=''
@@ -19,7 +17,10 @@ fi
 
 sudo apt-get install -y python3-venv
 
-git clone https://github.com/userusr/sonet.local.git
+if [ ! -d sonet.local ]; then
+    git clone https://github.com/userusr/sonet.local.git
+fi
+
 cd sonet.local
 git submodule init
 git submodule update
@@ -27,11 +28,11 @@ git submodule update
 make venv
 source ./venv/bin/activate
 
-sed -i "s/docker_bind_ip: 127.0.0.1/docker_bind_ip: ${bind_ip}/" inventory/inventory.yml
+sed -i "s/docker_bind_ip: 127.0.0.1/docker_bind_ip: ${bind_ip}/" configs/sonet_local/playbook.yml
 
-cat <<EOF>inventory/group_vars/all/05-coredns.yml
+cat <<EOF>configs/sonet_local/vars/99-override.yml
 ---
-coredns:
+sonet_coredns:
   root_forward: [ '8.8.8.8' ]
   zones:
     - zonefile: "{{ sonet_general['domain'] }}.zone"

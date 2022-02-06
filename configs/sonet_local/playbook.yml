@@ -28,5 +28,5 @@
       - monitoring
       - control-files
   vars_files:
-    - vars/vault.yml
-    - vars/sonet.yml
+    - vars/10-vault.yml
+    - vars/90-general.yml
