@@ -32,7 +32,7 @@ sed -i "s/docker_bind_ip: 127.0.0.1/docker_bind_ip: ${bind_ip}/" configs/sonet_l
 
 cat <<EOF>configs/sonet_local/vars/99-override.yml
 ---
-sonet_coredns:
+sonet_dns:
   root_forward: [ '8.8.8.8' ]
   zones:
     - zonefile: "{{ sonet_general['domain'] }}.zone"
