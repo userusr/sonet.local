@@ -9,6 +9,8 @@
     backup_path: "{{ local_playbook_path }}/../../build/sonet_local/backup"
     pki_path: "{{ local_playbook_path }}/../../build/sonet_local/pki"
     docker_bind_ip: 127.0.0.1
+    # docker_bind_ip: "{{ ansible_default_ipv4['address']|string }}"
+    # docker_registry_url: "registry.sonet.local:5000"
     generate_service_certs: true
     include_service:
       - caddy

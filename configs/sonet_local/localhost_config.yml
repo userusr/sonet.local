@@ -1,14 +1,15 @@
 ---
 ##
-# ansible-playbook configs/sonet_local/localhost_config.yml -i ./inventory/ --ask-become-pass --become
+# ansible-playbook configs/sonet_local/localhost_config.yml -i ./inventory/ --ask-become-pass
 #
 - name: "add hosts to /etc/hosts"
   hosts: sonet_local
   become: true
   tasks:
-    - ansible.builtin.lineinfile:
+    - name: add services to /etc/hosts
+      ansible.builtin.lineinfile:
         dest=/etc/hosts
-        regexp='.*{{ item.ip }}$'
+        regexp='^{{ item.ip }}\s+{{ item.host }}$'
         line="{{ item.ip }} {{ item.host }}"
         state=present
       with_items:
